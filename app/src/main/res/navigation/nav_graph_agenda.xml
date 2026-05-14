@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_agenda"
+    app:startDestination="@id/agendaFragment">
+
+    <fragment
+        android:id="@+id/agendaFragment"
+        android:name="com.isa.cuidadocompartidomayor.ui.agenda.AgendaFragment"
+        android:label="Agenda"
+        tools:layout="@layout/fragment_agenda">
+
+        <action
+            android:id="@+id/action_agenda_to_add_event"
+            app:destination="@id/addEditEventBottomSheet" />
+
+        <action
+            android:id="@+id/action_agenda_to_view_all"
+            app:destination="@id/viewAllEventsBottomSheet" />
+    </fragment>
+
+    <dialog
+        android:id="@+id/addEditEventBottomSheet"
+        android:name="com.isa.cuidadocompartidomayor.ui.agenda.dialog.AddEditEventBottomSheet"
+        android:label="Agregar Evento"
+        tools:layout="@layout/bottom_sheet_add_edit_event"/>
+
+    <dialog
+        android:id="@+id/viewAllEventsBottomSheet"
+        android:name="com.isa.cuidadocompartidomayor.ui.agenda.dialog.ViewAllEventsBottomSheet"
+        android:label="Todos los Eventos"
+        tools:layout="@layout/bottom_sheet_view_all_events"/>
+
+</navigation>

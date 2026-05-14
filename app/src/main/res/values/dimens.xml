@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Dimensiones específicas para Adulto Mayor (Accesibilidad) -->
+    <dimen name="bottom_nav_height_elderly">80dp</dimen>
+    <dimen name="bottom_nav_icon_size_elderly">32dp</dimen>
+    <dimen name="text_size_elderly_large">28sp</dimen>
+    <dimen name="text_size_elderly_extra_large">32sp</dimen>
+    <dimen name="button_height_elderly">64dp</dimen>
+    <dimen name="card_padding_elderly">24dp</dimen>
+    <dimen name="margin_elderly_standard">16dp</dimen>
+    <dimen name="margin_elderly_large">24dp</dimen>
+</resources>
+

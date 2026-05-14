@@ -1,0 +1,701 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="@android:color/background_light">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Recycler View de Alertas -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvEmergencyAlerts"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:clipToPadding="false"
+            android:paddingTop="8dp"
+            android:paddingBottom="16dp"
+            android:layout_marginBottom="16dp"
+            tools:visibility="visible"
+            tools:itemCount="1"
+            tools:listitem="@layout/item_emergency_alert"/>
+
+        <!-- ========================================= -->
+        <!-- HEADER: Saludo personalizado             -->
+        <!-- ========================================= -->
+        <TextView
+            android:id="@+id/tvWelcome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hola, Cuidador"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="?attr/colorOnSurface"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:id="@+id/tvSubtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Panel de Cuidador"
+            android:textSize="14sp"
+            android:textColor="@color/text_secondary"
+            android:layout_marginBottom="16dp"/>
+
+        <!-- ========================================= -->
+        <!-- SECCIÓN 1: Botones de Conectar con Adulto Mayor y Ver lista Adultos Mayores      -->
+        <!-- ========================================= -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            android:layout_marginBottom="24dp">
+
+            <!-- Botón Conectar Adulto Mayor -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardConnectElderly"
+                android:layout_width="0dp"
+                android:layout_height="120dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="4dp"
+                app:strokeWidth="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/secondary"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="14dp">
+
+                    <ImageView
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:src="@drawable/ic_person_add"
+                        app:tint="@color/white" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:gravity="center"
+                        android:text="Conectar\nAdulto Mayor"
+                        android:textColor="@color/white"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Botón Mis Adulto Mayores -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardMyPatients"
+                android:layout_width="0dp"
+                android:layout_height="120dp"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="4dp"
+                app:strokeWidth="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="14dp"
+                    android:background="@color/main_secondary">
+
+                    <ImageView
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:src="@drawable/ic_group"
+                        app:tint="@color/white"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="Mis\nConexiones"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/white"
+                        android:gravity="center"/>
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+
+        <!-- ========================================= -->
+        <!-- SECCIÓN 2: Médicamento de hoy        -->
+        <!-- ========================================= -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Medicamento de hoy"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/text_primary"/>
+
+
+        </LinearLayout>
+
+        <!-- RecyclerView de Medicamentos -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvUpcomingMedications"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:nestedScrollingEnabled="false"
+            android:clipToPadding="false"
+            android:paddingBottom="8dp"
+            tools:listitem="@layout/item_upcoming_medication"/>
+
+        <!-- Loading Medicamentos -->
+        <ProgressBar
+            android:id="@+id/progressMedications"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="16dp"
+            android:visibility="gone"/>
+
+        <!-- Empty State Medicamentos -->
+        <TextView
+            android:id="@+id/tvEmptyMedications"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="No hay medicamentos programados"
+            android:textSize="14sp"
+            android:textColor="@color/text_secondary"
+            android:textStyle="italic"
+            android:gravity="center"
+            android:padding="16dp"
+            android:visibility="gone"
+            android:layout_marginBottom="16dp"/>
+
+
+        <!-- ========================================= -->
+        <!-- SECCIÓN 3: Próximas Tareas                -->
+        <!-- ========================================= -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="24dp">
+
+            <!-- Header -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="12dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Próximos Eventos"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="?attr/colorOnSurface"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnViewAllEvents"
+                    style="@style/Widget.Material3.Button.TextButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ver todos los eventos"
+                    android:textStyle="italic"
+                    android:textSize="14sp"/>
+
+            </LinearLayout>
+
+            <!-- RecyclerView de Próximos Eventos -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvUpcomingEvents"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false"
+                android:clipToPadding="false"
+                android:paddingBottom="4dp"
+                tools:listitem="@layout/item_dashboard_event"
+                android:minHeight="510dp"/>
+
+
+            <!-- Empty State -->
+            <LinearLayout
+                android:id="@+id/emptyStateEvents"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="32dp"
+                android:visibility="gone">
+
+                <ImageView
+                    android:layout_width="64dp"
+                    android:layout_height="64dp"
+                    android:src="@drawable/ic_task_checkbox"
+                    android:alpha="0.3"
+                    android:contentDescription="Sin eventos"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="No hay eventos próximos"
+                    android:textSize="14sp"
+                    android:textColor="?android:attr/textColorSecondary"
+                    android:layout_marginTop="12dp"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+        <!-- ========================================= -->
+        <!-- SECCIÓN 4: Últimas Lecturas Médicas       -->
+        <!-- ========================================= -->
+        <TextView
+            android:id="@+id/tvVitalSignsTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Últimas lecturas médicas"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/text_primary"
+            android:layout_marginBottom="12dp"/>
+
+
+        <!-- ========================================= -->
+        <!-- SPINNER PARA SELECCIONAR ADULTO MAYOR -->
+        <!-- ========================================= -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="2dp"
+            app:strokeWidth="1dp"
+            app:strokeColor="@color/card_stroke">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@color/background_light"
+                android:padding="12dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Seleccionar adulto mayor para ver sus lecturas:"
+                    android:textSize="12sp"
+                    android:textColor="@color/azul_principal"
+                    android:layout_marginBottom="8dp"/>
+
+                <Spinner
+                    android:id="@+id/spinnerElderlySelection"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="5dp"
+                    android:spinnerMode="dropdown"/>
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+
+
+        <!-- Grid de Lecturas Médicas (2 columnas x 3 filas) -->
+        <GridLayout
+            android:id="@+id/gridMedicalReadings"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="2"
+            android:rowCount="3"
+            android:layout_marginBottom="16dp">
+
+            <!-- Card 1: Pulso -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardPulse"
+                android:layout_width="0dp"
+                android:layout_height="120dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="4dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="2dp"
+                app:strokeWidth="1dp"
+                app:strokeColor="@color/pulse_stroke">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:background="@color/pulse_background"
+                    android:gravity="center"
+                    android:padding="10dp">
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/ic_heart"
+                        app:tint="@color/pulse_stroke"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Pulso"
+                        android:textSize="12sp"
+                        android:textColor="@color/black"/>
+
+                    <TextView
+                        android:id="@+id/tvPulse"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="--"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/pulse_stroke"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="LPM"
+                        android:textSize="10sp"
+                        android:textColor="@color/gray_black"/>
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Card 2: Glucosa -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardGlucose"
+                android:layout_width="0dp"
+                android:layout_height="120dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="4dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="2dp"
+                app:strokeWidth="1dp"
+                app:strokeColor="@color/glucose_stroke">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:background="@color/glucose_background"
+                    android:padding="10dp">
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/ic_glucose"
+                        app:tint="@color/glucose_stroke"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Glucosa"
+                        android:textSize="12sp"
+                        android:textColor="@color/black"/>
+
+                    <TextView
+                        android:id="@+id/tvGlucose"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="--"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/glucose_stroke"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="mg/dL"
+                        android:textSize="10sp"
+                        android:textColor="@color/gray_black"/>
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Card 3: Temperatura -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardTemperature"
+                android:layout_width="0dp"
+                android:layout_height="120dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="4dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="2dp"
+                app:strokeWidth="1dp"
+                app:strokeColor="@color/temperature_stroke">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:background="@color/temperature_background"
+                    android:padding="10dp">
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/ic_temperature"
+                        app:tint="@color/temperature_stroke"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Temperatura"
+                        android:textSize="12sp"
+                        android:textColor="@color/gray_black"/>
+
+                    <TextView
+                        android:id="@+id/tvTemperature"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="--"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/temperature_stroke"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="°C"
+                        android:textSize="10sp"
+                        android:textColor="@color/gray_black"/>
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Card 4: Presión Arterial -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardBloodPressure"
+                android:layout_width="0dp"
+                android:layout_height="120dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="4dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="2dp"
+                app:strokeWidth="1dp"
+                app:strokeColor="@color/blood_pressure_stroke">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:background="@color/blood_pressure_background"
+                    android:padding="10dp">
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/ic_blood_pressure"
+                        app:tint="@color/blood_pressure_stroke"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Presión"
+                        android:textSize="12sp"
+                        android:textColor="@color/gray_black"/>
+
+                    <TextView
+                        android:id="@+id/tvBloodPressure"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="--/--"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/blood_pressure_stroke"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="mmHg"
+                        android:textSize="10sp"
+                        android:textColor="@color/gray_black"/>
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Card 5: Saturación O2 -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardOxygenSaturation"
+                android:layout_width="0dp"
+                android:layout_height="120dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="4dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="2dp"
+                app:strokeWidth="1dp"
+                app:strokeColor="@color/oxygen_stroke">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:background="@color/oxygen_background"
+                    android:padding="10dp">
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/ic_oxygen"
+                        app:tint="@color/oxygen_stroke"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Saturación"
+                        android:textSize="12sp"
+                        android:textColor="@color/black"/>
+
+                    <TextView
+                        android:id="@+id/tvOxygenSaturation"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="--"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/oxygen_stroke"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="%"
+                        android:textSize="10sp"
+                        android:textColor="@color/gray_black"/>
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Card 6: Peso -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardWeight"
+                android:layout_width="0dp"
+                android:layout_height="120dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="4dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="2dp"
+                app:strokeWidth="1dp"
+                app:strokeColor="@color/weight_stroke">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:background="@color/weight_background"
+                    android:padding="10dp">
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/ic_weight"
+                        app:tint="@color/weight_stroke"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Peso"
+                        android:textSize="12sp"
+                        android:textColor="@color/black"/>
+
+                    <TextView
+                        android:id="@+id/tvWeight"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="--"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/weight_stroke"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="kg"
+                        android:textSize="10sp"
+                        android:textColor="@color/gray_black"/>
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+        </GridLayout>
+
+        <!-- ========================================= -->
+        <!-- SECCIÓN 5: Últimos Comportamientos        -->
+        <!-- ========================================= -->
+
+        <TextView
+            android:id="@+id/tvBehaviorsTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Últimos comportamientos registrados"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/text_primary"
+            android:layout_marginBottom="12dp"/>
+
+        <!-- Chips Horizontales de Comportamientos -->
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chipGroupBehaviors"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:singleLine="false"
+            app:chipSpacing="8dp"
+            android:backgroundTint="@color/white"
+            android:layout_marginBottom="10dp">
+
+            <!-- Los chips se agregarán dinámicamente -->
+
+        </com.google.android.material.chip.ChipGroup>
+
+        <!-- Empty State Comportamientos -->
+        <TextView
+            android:id="@+id/tvEmptyBehaviors"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="No hay comportamientos registrados"
+            android:textSize="14sp"
+            android:textColor="@color/text_secondary"
+            android:textStyle="italic"
+            android:gravity="center"
+            android:padding="16dp"
+            android:visibility="gone"/>
+
+    </LinearLayout>
+
+</ScrollView>

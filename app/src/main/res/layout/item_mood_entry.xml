@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="2dp"
+    app:strokeWidth="1dp"
+    android:backgroundTint="@color/white"
+    app:strokeColor="@color/card_stroke">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Header: Fecha y Paciente -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/text_primary"
+                    tools:text="22 Oct 2025, 2:30 PM"/>
+
+                <TextView
+                    android:id="@+id/tvElderlyName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:textSize="12sp"
+                    android:textColor="@color/text_secondary"
+                    tools:text="👤 María González"/>
+
+            </LinearLayout>
+
+            <!-- Botones de Acción -->
+            <ImageButton
+                android:id="@+id/btnEdit"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_marginEnd="4dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@drawable/ic_edit"
+                android:contentDescription="Editar"
+                app:tint="@color/main_secondary"/>
+
+            <ImageButton
+                android:id="@+id/btnDelete"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@drawable/ic_delete"
+                android:contentDescription="Eliminar"
+                app:tint="@color/status_danger"/>
+
+        </LinearLayout>
+
+        <!-- Divider -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/card_stroke"
+            android:layout_marginBottom="12dp"/>
+
+        <!-- Emociones -->
+        <LinearLayout
+            android:id="@+id/layoutEmotions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:layout_marginBottom="8dp"
+            tools:visibility="visible">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="😊 Emociones:"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:textColor="@color/text_secondary"
+                android:layout_marginBottom="6dp"/>
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/chipGroupEmotions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:chipSpacing="6dp"/>
+
+        </LinearLayout>
+
+        <!-- Síntomas -->
+        <LinearLayout
+            android:id="@+id/layoutSymptoms"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:layout_marginBottom="8dp"
+            tools:visibility="visible">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🤒 Síntomas:"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:textColor="@color/text_secondary"
+                android:layout_marginBottom="6dp"/>
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/chipGroupSymptoms"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:chipSpacing="6dp"/>
+
+        </LinearLayout>
+
+        <!-- Niveles -->
+        <LinearLayout
+            android:id="@+id/layoutLevels"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:layout_marginBottom="8dp"
+            tools:visibility="visible">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="📊 Niveles:"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:textColor="@color/text_secondary"
+                android:layout_marginBottom="6dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvEnergyLevel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="13sp"
+                    android:textColor="@color/text_primary"
+                    android:visibility="gone"
+                    tools:visibility="visible"
+                    tools:text="⚡ Energía: Media"/>
+
+                <TextView
+                    android:id="@+id/tvAppetiteLevel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:textSize="13sp"
+                    android:textColor="@color/text_primary"
+                    android:visibility="gone"
+                    tools:visibility="visible"
+                    tools:text="🍽️ Apetito: Bueno"/>
+
+                <TextView
+                    android:id="@+id/tvFunctionalCapacity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:textSize="13sp"
+                    android:textColor="@color/text_primary"
+                    android:visibility="gone"
+                    tools:visibility="visible"
+                    tools:text="🚶 Cap. Funcional: Bueno"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Notas (si existen) -->
+        <LinearLayout
+            android:id="@+id/layoutNotes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="4dp"
+            android:visibility="gone"
+            tools:visibility="visible">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/card_stroke"
+                android:layout_marginBottom="8dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="📝 Notas:"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:textColor="@color/text_secondary"
+                android:layout_marginBottom="4dp"/>
+
+            <TextView
+                android:id="@+id/tvNotes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:textColor="@color/text_primary"
+                tools:text="Se ve de buen humor hoy"/>
+
+        </LinearLayout>
+
+        <!-- Footer: Registrado por -->
+        <TextView
+            android:id="@+id/tvCaregiverName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textSize="11sp"
+            android:textColor="@color/text_secondary"
+            android:textStyle="italic"
+            tools:text="Registrado por: Dr. López"/>
+
+        <!-- NUEVO: Info de edición -->
+        <TextView
+            android:id="@+id/tvEditInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textSize="11sp"
+            android:textColor="@color/status_warning"
+            android:textStyle="italic"
+            android:visibility="gone"
+            tools:visibility="visible"
+            tools:text="✏️ Editado por: Isay - 25 Oct 2025 11:30 AM"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_caregiver"
+    app:startDestination="@id/caregiverHomeFragment">
+
+    <!-- ========== DASHBOARD DEL CUIDADOR ========== -->
+    <fragment
+        android:id="@+id/caregiverHomeFragment"
+        android:name="com.isa.cuidadocompartidomayor.ui.caregiver.CaregiverHomeFragment"
+        android:label="Inicio"
+        tools:layout="@layout/fragment_caregiver_home" >
+
+        <!-- Navegación a Conectar Adulto Mayor -->
+        <action
+            android:id="@+id/action_caregiverHome_to_connectElderly"
+            app:destination="@id/connectElderlyFragment" />
+
+        <!-- Navegación a Lista de Adultos Mayores -->
+        <action
+            android:id="@+id/action_caregiverHome_to_patientList"
+            app:destination="@id/patientListFragment" />
+    </fragment>
+
+    <!-- ========== GESTIÓN DE CONEXIONES ========== -->
+    <!-- Conectar Adulto Mayor -->
+    <fragment
+        android:id="@+id/connectElderlyFragment"
+        android:name="com.isa.cuidadocompartidomayor.ui.caregiver.ConnectElderlyFragment"
+        android:label="Conectar Adulto Mayor"
+        tools:layout="@layout/fragment_connect_elderly" />
+
+    <!-- Lista de Pacientes -->
+    <fragment
+        android:id="@+id/patientListFragment"
+        android:name="com.isa.cuidadocompartidomayor.ui.caregiver.PatientListFragment"
+        android:label="Mis Adultos Mayores"
+        tools:layout="@layout/fragment_patient_list">
+
+        <!-- Navegación a Detalles del Paciente -->
+        <action
+            android:id="@+id/action_patientList_to_patientDetail"
+            app:destination="@id/patientDetailFragment" />
+
+        <!-- Navegación a Conectar desde Lista -->
+        <action
+            android:id="@+id/action_patientList_to_connectElderly"
+            app:destination="@id/connectElderlyFragment" />
+
+    </fragment>
+
+    <!-- Detalles del Paciente -->
+    <fragment
+        android:id="@+id/patientDetailFragment"
+        android:name="com.isa.cuidadocompartidomayor.ui.caregiver.PatientDetailFragment"
+        android:label="Detalles del Adulto Mayor"
+        tools:layout="@layout/fragment_patient_detail">
+
+        <!-- Argumento requerido: ID de la relación -->
+        <argument
+            android:name="relationshipId"
+            app:argType="string"
+            app:nullable="false" />
+
+    </fragment>
+
+
+    <!-- ========== FUNCIONES PRINCIPALES ========== -->
+    <!-- Medicamentos -->
+    <fragment
+        android:id="@+id/medicationsFragment"
+        android:name="com.isa.cuidadocompartidomayor.ui.medications.MedicationsFragment"
+        android:label="Medicamentos"
+        tools:layout="@layout/fragment_medications">
+        <action
+            android:id="@+id/action_medicationsFragment_to_medicationWizard"
+            app:destination="@id/nav_graph_medications"/>
+
+        <action
+            android:id="@+id/action_medicationsFragment_to_editMedicationDialog"
+            app:destination="@id/editMedicationDialogFragment" />
+    </fragment>
+
+    <dialog
+        android:id="@+id/editMedicationDialogFragment"
+        android:name="com.isa.cuidadocompartidomayor.ui.medications.dialog.EditMedicationDialogFragment"
+        android:label="Editar Medicamento"
+        tools:layout="@layout/fragment_edit_medication">
+
+        <argument
+            android:name="medicationId"
+            app:argType="string" />
+    </dialog>
+
+    <include app:graph="@navigation/nav_graph_medications"/>
+
+    <!-- Diario -->
+    <fragment
+        android:id="@+id/diaryFragment"
+        android:name="com.isa.cuidadocompartidomayor.ui.diary.DiaryFragment"
+        android:label="Diario"
+        tools:layout="@layout/fragment_diary">
+        <!-- Para signos vitakles-->
+        <action
+            android:id="@+id/action_diary_to_vitalSignWizard"
+            app:destination="@id/nav_graph_add_vital_sign"/>
+        <!-- para estados de ánimo -->
+        <action
+            android:id="@+id/action_diary_to_moodWizard"
+            app:destination="@id/nav_graph_add_mood_entry"/>
+    </fragment>
+
+    <!-- NESTED GRAPH -->
+    <include app:graph="@navigation/nav_graph_add_vital_sign"/>
+    <include app:graph="@navigation/nav_graph_add_mood_entry"/>
+
+    <!-- Calendario -->
+    <fragment
+        android:id="@+id/navigation_agenda"
+        android:name="com.isa.cuidadocompartidomayor.ui.agenda.AgendaFragment"
+        android:label="Agenda"
+        tools:layout="@layout/fragment_agenda" />
+
+    <!-- Perfil -->
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.isa.cuidadocompartidomayor.ui.profile.ProfileFragment"
+        android:label="Perfil"
+        tools:layout="@layout/fragment_profile" />
+
+</navigation>

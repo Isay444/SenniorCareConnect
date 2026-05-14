@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_medications"
+    app:startDestination="@id/selectPatientFragment">
+
+    <!-- PANTALLA 0: Seleccionar Paciente -->
+    <fragment
+        android:id="@+id/selectPatientFragment"
+        android:name="com.isa.cuidadocompartidomayor.ui.medications.wizard.SelectPatientFragment"
+        android:label="Seleccionar el paciente"
+        tools:layout="@layout/fragment_select_patient">
+        <action
+            android:id="@+id/action_selectPatientFragment_to_medicationNameFragment"
+            app:destination="@id/medicationNameFragment" />
+    </fragment>
+
+    <!-- PANTALLA 1: Nombre del medicamento -->
+    <fragment
+        android:id="@+id/medicationNameFragment"
+        android:name="com.isa.cuidadocompartidomayor.ui.medications.wizard.MedicationNameFragment"
+        tools:layout="@layout/fragment_medication_name"
+        android:label="MedicationNameFragment" >
+        <action
+            android:id="@+id/action_medicationNameFragment_to_selectMedicationTypeFragment"
+            app:destination="@id/selectMedicationTypeFragment" />
+    </fragment>
+
+    <!-- PANTALLA 2: Seleccionar forma -->
+    <fragment
+        android:id="@+id/selectMedicationTypeFragment"
+        android:name="com.isa.cuidadocompartidomayor.ui.medications.wizard.SelectMedicationTypeFragment"
+        android:label="SelectMedicationTypeFragment"
+        tools:layout="@layout/fragment_select_medication_type">
+        <action
+            android:id="@+id/action_selectMedicationTypeFragment_to_selectFrequencyFragment"
+            app:destination="@id/selectFrequencyFragment" />
+    </fragment>
+
+    <!-- PANTALLA 3: Seleccionar frecuencia -->
+    <fragment
+        android:id="@+id/selectFrequencyFragment"
+        android:name="com.isa.cuidadocompartidomayor.ui.medications.wizard.SelectFrequencyFragment"
+        android:label="SelectFrequencyFragment"
+        tools:layout="@layout/fragment_select_frequency">
+        <action
+            android:id="@+id/action_selectFrequencyFragment_to_scheduleSingleDoseFragment"
+            app:destination="@id/scheduleSingleDoseFragment" />
+        <action
+            android:id="@+id/action_selectFrequencyFragment_to_selectTimesPerDayFragment"
+            app:destination="@id/selectTimesPerDayFragment" />
+        <action
+            android:id="@+id/action_selectFrequencyFragment_to_selectWeekDaysFragment"
+            app:destination="@id/selectWeekDaysFragment" />
+        <action
+            android:id="@+id/action_selectFrequencyFragment_to_selectIntervalDaysFragment"
+            app:destination="@id/selectIntervalDaysFragment" />
+        <action
+            android:id="@+id/action_selectFrequencyFragment_to_selectIntervalWeeksFragment"
+            app:destination="@id/selectIntervalWeeksFragment" />
+        <action
+            android:id="@+id/action_selectFrequencyFragment_to_selectIntervalMonthsFragment"
+            app:destination="@id/selectIntervalMonthsFragment" />
+    </fragment>
+
+    <!-- PANTALLA 4: Programar hora única -->
+    <fragment
+        android:id="@+id/scheduleSingleDoseFragment"
+        android:name="com.isa.cuidadocompartidomayor.ui.medications.wizard.ScheduleSingleDoseFragment"
+        android:label="ScheduleSingleDoseFragment"
+        tools:layout="@layout/fragment_schedule_single_dose">
+        <action
+            android:id="@+id/action_scheduleSingleDoseFragment_to_enterDosageFragment"
+            app:destination="@id/enterDosageFragment" />
+    </fragment>
+
+    <!-- PANTALLA 5: Veces al día -->
+    <fragment
+        android:id="@+id/selectTimesPerDayFragment"
+        android:name="com.isa.cuidadocompartidomayor.ui.medications.wizard.SelectTimesPerDayFragment"
+        android:label="Veces por dia"
+        tools:layout="@layout/fragment_select_times_per_day">
+        <action
+            android:id="@+id/action_selectTimesPerDayFragment_to_scheduleMultipleDosesFragment"
+            app:destination="@id/scheduleMultipleDosesFragment" />
+    </fragment>
+
+    <!-- PANTALLA 6: Programar múltiples horarios -->
+    <fragment
+        android:id="@+id/scheduleMultipleDosesFragment"
+        android:name="com.isa.cuidadocompartidomayor.ui.medications.wizard.ScheduleMultipleDosesFragment"
+        android:label="ScheduleMultipleDosesFragment"
+        tools:layout="@layout/fragment_schedule_multiple_doses">
+        <action
+            android:id="@+id/action_scheduleMultipleDosesFragment_to_enterDosageFragment"
+            app:destination="@id/enterDosageFragment" />
+    </fragment>
+
+    <!-- PANTALLA 7: Días de la semana -->
+    <fragment
+        android:id="@+id/selectWeekDaysFragment"
+        android:name="com.isa.cuidadocompartidomayor.ui.medications.wizard.SelectWeekDaysFragment"
+        android:label="SelectWeekDaysFragment"
+        tools:layout="@layout/fragment_select_week_days">
+        <action
+            android:id="@+id/action_selectWeekDaysFragment_to_selectTimesPerDayFragment"
+            app:destination="@id/selectTimesPerDayFragment" />
+    </fragment>
+
+    <!-- PANTALLA 8: Intervalo días -->
+    <fragment
+        android:id="@+id/selectIntervalDaysFragment"
+        android:name="com.isa.cuidadocompartidomayor.ui.medications.wizard.SelectIntervalDaysFragment"
+        android:label="SelectIntervalDaysFragment"
+        tools:layout="@layout/fragment_select_interval_days">
+        <action
+            android:id="@+id/action_selectIntervalDaysFragment_to_selectTimesPerDayFragment"
+            app:destination="@id/selectTimesPerDayFragment" />
+    </fragment>
+
+    <!-- PANTALLA 9: Intervalo semanas -->
+    <fragment
+        android:id="@+id/selectIntervalWeeksFragment"
+        android:name="com.isa.cuidadocompartidomayor.ui.medications.wizard.SelectIntervalWeeksFragment"
+        android:label="SelectIntervalWeeksFragment"
+        tools:layout="@layout/fragment_select_interval_weeks">
+        <action
+            android:id="@+id/action_selectIntervalWeeksFragment_to_selectTimesPerDayFragment"
+            app:destination="@id/selectTimesPerDayFragment" />
+    </fragment>
+
+    <!-- PANTALLA 10: Intervalo meses -->
+    <fragment
+        android:id="@+id/selectIntervalMonthsFragment"
+        android:name="com.isa.cuidadocompartidomayor.ui.medications.wizard.SelectIntervalMonthsFragment"
+        tools:layout="@layout/fragment_select_interval_months"
+        android:label="SelectIntervalMonthsFragment" >
+        <action
+            android:id="@+id/action_selectIntervalMonthsFragment_to_selectTimesPerDayFragment"
+            app:destination="@id/selectTimesPerDayFragment" />
+    </fragment>
+
+    <!-- PANTALLA 11: Introducir dosis -->
+    <fragment
+        android:id="@+id/enterDosageFragment"
+        android:name="com.isa.cuidadocompartidomayor.ui.medications.wizard.EnterDosageFragment"
+        android:label="EnterDosageFragment"
+        tools:layout="@layout/fragment_enter_dosage">
+        <action
+            android:id="@+id/action_enterDosageFragment_to_enterInstructionsFragment"
+            app:destination="@id/enterInstructionsFragment" />
+    </fragment>
+
+    <!-- PANTALLA 12: Instrucciones y guardar -->
+    <fragment
+        android:id="@+id/enterInstructionsFragment"
+        android:name="com.isa.cuidadocompartidomayor.ui.medications.wizard.EnterInstructionsFragment"
+        android:label="Notas o Instrucciones "
+        tools:layout="@layout/fragment_enter_instructions">
+
+    </fragment>
+
+</navigation>

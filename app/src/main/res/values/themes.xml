@@ -1,0 +1,18 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.CuidadoCompartidoMayor" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <item name="colorPrimary">@color/azul_principal</item>
+        <item name="colorPrimaryVariant">@color/gray_black</item>
+        <item name="colorAccent">@color/accent_claro</item>
+    </style>
+
+    <style name="Theme.CuidadoCompartidoMayor" parent="Base.Theme.CuidadoCompartidoMayor" />
+
+    <!-- Tema específico para Dashboard del Adulto Mayor -->
+    <style name="Theme.ElderlyDashboard" parent="Base.Theme.CuidadoCompartidoMayor">
+        <item name="colorPrimary">@color/azul_principal</item>
+        <item name="colorPrimaryVariant">@color/gray_black</item>
+        <item name="android:windowBackground">@color/main_secondary</item>
+    </style>
+</resources>

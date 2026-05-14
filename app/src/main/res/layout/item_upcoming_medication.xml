@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cardMedication"
+    android:backgroundTint="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="16dp"
+    android:layout_marginVertical="8dp"
+    app:cardElevation="4dp"
+    app:cardCornerRadius="12dp"
+    app:strokeWidth="2dp"
+    app:strokeColor="@color/card_stroke">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/background_light"
+        android:padding="16dp">
+
+        <!-- Icono del medicamento -->
+
+        <!-- Contenedor de información -->
+        <ImageView
+            android:id="@+id/ivMedicationType"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="13dp"
+            android:contentDescription="Tipo de medicamento"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/main_accent"
+            tools:src="@drawable/ic_pill" />
+
+        <LinearLayout
+            android:id="@+id/layoutInfo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="8dp"
+            android:orientation="vertical"
+            app:layout_constraintStart_toEndOf="@id/ivMedicationType"
+            app:layout_constraintEnd_toStartOf="@id/layoutTopActions"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <!-- Nombre del medicamento -->
+            <TextView
+                android:id="@+id/tvMedicationName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/text_primary"
+                android:maxLines="2"
+                android:ellipsize="end"
+                tools:text="Insulina"/>
+
+            <!-- Hora y frecuencia -->
+            <TextView
+                android:id="@+id/tvTimeAndFrequency"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:textSize="14sp"
+                android:textColor="@color/text_secondary"
+                tools:text="11:00 AM | Una vez al día"/>
+
+            <!-- Nombre del paciente -->
+            <TextView
+                android:id="@+id/tvElderlyName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:textSize="12sp"
+                android:textColor="@color/black"
+                tools:text="Para: José García"/>
+
+
+        </LinearLayout>
+
+        <!-- Contenedor de acciones superiores (info + indicador + expandir) -->
+        <LinearLayout
+            android:id="@+id/layoutTopActions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <!-- ✅ Botón de información -->
+            <ImageButton
+                android:id="@+id/btnInfo"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@drawable/ic_info"
+                android:contentDescription="Ver detalles"
+                app:tint="@color/gray_black"/>
+
+            <!-- Indicador de estado (icono) -->
+
+            <!-- Botón de expandir -->
+            <ImageButton
+                android:id="@+id/btnExpand"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:layout_marginStart="4dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="Más opciones"
+                android:src="@drawable/ic_dropdown"
+                app:tint="@color/black" />
+
+        </LinearLayout>
+
+        <!-- Panel de acciones (expandible) -->
+        <LinearLayout
+            android:id="@+id/layoutActions"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal"
+            android:gravity="end"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layoutInfo"
+            tools:visibility="visible">
+
+            <!-- Botón Omitir -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSkip"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                android:text="Omitir"
+                android:textColor="@color/white"
+                app:backgroundTint="@color/status_missed"
+                app:icon="@drawable/ic_skip_next"
+                app:iconGravity="start"
+                style="@style/Widget.Material3.Button"/>
+
+            <Button
+                android:id="@+id/btnPending"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="⏳ Pendiente"
+                android:textSize="12sp"
+                android:backgroundTint="@color/status_pending"
+                android:textColor="@android:color/white"
+                android:layout_marginEnd="8dp" />
+
+            <!-- Botón Confirmar -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnConfirm"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Confirmar"
+                android:textColor="@color/white"
+                app:backgroundTint="@color/status_on_time"
+                app:icon="@drawable/ic_check_circle"
+                app:iconGravity="start"
+                style="@style/Widget.Material3.Button"/>
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/ivStatusIndicator"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.543"
+            app:layout_constraintStart_toEndOf="@+id/layoutInfo"
+            app:layout_constraintTop_toBottomOf="@+id/layoutTopActions"
+            app:tint="@color/status_on_time"
+            tools:src="@drawable/ic_check_circle"
+            tools:visibility="visible" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

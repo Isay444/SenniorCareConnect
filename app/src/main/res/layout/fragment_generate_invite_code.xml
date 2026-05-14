@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:fillViewport="true"
+    tools:context=".ui.elderly.GenerateInviteCodeFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/margin_elderly_standard">
+
+        <!-- Título Principal -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="INVITAR CUIDADOR"
+            android:textSize="@dimen/text_size_elderly_extra_large"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:textColor="@color/secondary" />
+
+        <!-- Divider -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/card_stroke"
+            android:layout_marginBottom="16dp"
+            android:layout_marginTop="12dp"/>
+
+        <!-- Botón Principal GENERAR CÓDIGO -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnGenerateCode"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/button_height_elderly"
+            android:text="GENERAR CÓDIGO"
+            android:textSize="@dimen/text_size_elderly_large"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"
+            android:backgroundTint="@color/green_one"
+            app:cornerRadius="16dp"
+            app:elevation="8dp"
+            android:layout_marginBottom="@dimen/margin_elderly_large" />
+
+        <!-- Progress Bar -->
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="@dimen/margin_elderly_large"
+            android:visibility="gone" />
+
+        <!-- Layout: Sin Código Activo -->
+        <LinearLayout
+            android:id="@+id/layoutNoCode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="@dimen/card_padding_elderly"
+            android:layout_marginBottom="@dimen/margin_elderly_large">
+
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@drawable/ic_qr_code"
+                android:layout_marginBottom="16dp"
+                android:contentDescription="Icono de código QR"
+                app:tint="@color/text_secondary" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="No tienes un código activo"
+                android:textSize="26sp"
+                android:textAlignment="center"
+                android:textColor="@color/text_secondary"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Genera un código para invitar a un cuidador"
+                android:textSize="20sp"
+                android:textAlignment="center"
+                android:textColor="@color/text_secondary" />
+
+        </LinearLayout>
+
+        <!-- Layout: Código Actual -->
+        <LinearLayout
+            android:id="@+id/layoutCurrentCode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:layout_marginBottom="@dimen/margin_elderly_large">
+
+            <!-- Tarjeta del Código -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="8dp"
+                app:cardBackgroundColor="@android:color/white"
+                app:strokeWidth="2dp"
+                app:strokeColor="@color/green_one"
+                android:layout_marginBottom="@dimen/margin_elderly_standard">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/card_padding_elderly"
+                    android:gravity="center">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="TU CÓDIGO DE INVITACIÓN"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:textAlignment="center"
+                        android:textColor="@color/green_one"
+                        android:layout_marginBottom="16dp" />
+
+                    <!-- Código en fuente gigante -->
+                    <TextView
+                        android:id="@+id/tvCurrentCode"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="ABC-123"
+                        android:textSize="48sp"
+                        android:textStyle="bold"
+                        android:textAlignment="center"
+                        android:textColor="@android:color/black"
+                        android:fontFamily="monospace"
+                        android:layout_marginBottom="16dp"
+                        tools:text="ABC-123" />
+
+                    <!-- Información de expiración -->
+                    <TextView
+                        android:id="@+id/tvCodeExpiration"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Expira en 23 horas"
+                        android:textSize="16sp"
+                        android:textAlignment="center"
+                        android:textColor="@color/text_secondary"
+                        tools:text="Expira en 23 horas" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- QR Code -->
+            <LinearLayout
+                android:id="@+id/layoutQrCode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:visibility="gone"
+                android:layout_marginBottom="@dimen/margin_elderly_standard">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="CÓDIGO QR"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textAlignment="center"
+                    android:textColor="@color/text_primary"
+                    android:layout_marginBottom="16dp" />
+
+                <ImageView
+                    android:id="@+id/ivQrCode"
+                    android:layout_width="200dp"
+                    android:layout_height="200dp"
+                    android:layout_gravity="center"
+                    android:contentDescription="Código QR de invitación"
+                    android:background="@android:color/white" />
+
+            </LinearLayout>
+
+            <!-- Botones de Acción -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <!-- Botón Compartir -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnShareCode"
+                    android:layout_width="0dp"
+                    android:layout_height="56dp"
+                    android:layout_weight="1"
+                    android:text="COMPARTIR"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/white"
+                    android:backgroundTint="@color/green_one"
+                    app:cornerRadius="12dp"
+                    android:layout_marginEnd="8dp" />
+
+                <!-- Botón Copiar -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnCopyCode"
+                    android:layout_width="0dp"
+                    android:layout_height="56dp"
+                    android:layout_weight="1"
+                    android:text="COPIAR"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/green_one"
+                    android:backgroundTint="@android:color/transparent"
+                    app:strokeColor="@color/green_one"
+                    app:strokeWidth="2dp"
+                    app:cornerRadius="12dp"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_marginStart="8dp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Sección de Códigos Anteriores -->
+        <LinearLayout
+            android:id="@+id/layoutPreviousCodes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="📋 CÓDIGOS ANTERIORES"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/text_primary"
+                android:layout_marginBottom="16dp" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvPreviousCodes"
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:nestedScrollingEnabled="true"
+                tools:listitem="@layout/item_invite_code"
+                tools:itemCount="3"/>
+
+
+        </LinearLayout>
+
+        <!-- Instrucciones -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="4dp"
+            app:cardBackgroundColor="@color/background_secondary"
+            android:layout_marginTop="@dimen/margin_elderly_large">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/margin_elderly_standard">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="INSTRUCCIONES"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/text_primary"
+                    android:layout_marginBottom="12dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="1. Genera un código de invitación\n2. Compártelo con tu cuidador\n3. El cuidador debe usar este código en la app\n4. Los códigos expiran en 24 horas"
+                    android:textSize="14sp"
+                    android:textAllCaps="true"
+                    android:textColor="@color/text_tertiary"
+                    android:lineSpacingMultiplier="1.2" />
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+
+</ScrollView>

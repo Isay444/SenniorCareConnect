@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+
+    <!-- Especifica el color de fondo del LinearLayout -->
+    <solid android:color="@color/white" />
+
+    <!-- Especifica el radio de las esquinas -->
+    <corners android:radius="15dp" />
+
+    <!-- Opcionalmente, puedes añadir un borde (stroke) -->
+    <stroke android:width="2dp" android:color="@color/card_stroke" /> -->
+</shape>

@@ -1,0 +1,109 @@
+<resources>
+    <string name="app_name">Cuidado Compartido</string>
+    <string name="texto_subrayado"><u>Regístrate</u></string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- Módulo Diario -->
+    <string name="diary_title">Diario de Salud</string>
+    <string name="vital_signs">Signos Vitales</string>
+    <string name="mood_entries">Estados de Ánimo</string>
+
+    <!-- Signos Vitales -->
+    <string name="no_vital_signs">No hay signos vitales registrados</string>
+    <string name="add_vital_sign">Agregar Signo Vital</string>
+    <string name="edit_vital_sign">Editar Signo Vital</string>
+    <string name="delete_vital_sign">¿Eliminar este registro de signos vitales?</string>
+
+    <!-- Estados de Ánimo -->
+    <string name="no_mood_entries">No hay estados de ánimo registrados</string>
+    <string name="add_mood_entry">Agregar Estado de Ánimo</string>
+    <string name="edit_mood_entry">Editar Estado de Ánimo</string>
+    <string name="delete_mood_entry">¿Eliminar este registro de estado de ánimo?</string>
+
+    <!-- Acciones -->
+    <string name="add_entry">Agregar registro</string>
+    <string name="save">Guardar</string>
+    <string name="cancel">Cancelar</string>
+    <string name="delete">Eliminar</string>
+    <string name="edit">Editar</string>
+    <string name="share">Compartir</string>
+    <string name="open">Abrir</string>
+
+    <!-- Gráficas -->
+    <string name="charts_title">Gráficas</string>
+    <string name="no_data">No hay datos disponibles</string>
+    <string name="select_date_range">Seleccionar rango de fechas</string>
+    <string name="change_range">Cambiar rango</string>
+
+    <!-- Historial -->
+    <string name="history_title">Historial Completo</string>
+    <string name="no_records_in_range">No hay registros en este rango de fechas</string>
+    <string name="records_count">%d registros</string>
+
+    <!-- Reportes -->
+    <string name="report_title">Generar Reporte</string>
+    <string name="generate_report">Generar Reporte PDF</string>
+    <string name="report_generated">Reporte generado exitosamente</string>
+    <string name="report_error">Error al generar el reporte</string>
+    <string name="open_report">¿Deseas abrir el reporte?</string>
+    <string name="no_data_for_report">No hay datos para generar el reporte</string>
+
+    <!-- Validaciones -->
+    <string name="invalid_value">Valor inválido</string>
+    <string name="field_required">Este campo es obligatorio</string>
+    <string name="at_least_one_sign">Debe registrar al menos un signo vital</string>
+    <string name="at_least_one_data">Debe registrar al menos un dato</string>
+
+    <!-- Unidades -->
+    <string name="unit_lpm">LPM</string>
+    <string name="unit_mg_dl">mg/dL</string>
+    <string name="unit_celsius">°C</string>
+    <string name="unit_mmhg">mmHg</string>
+    <string name="unit_percent">%</string>
+    <string name="unit_kg">Kg</string>
+
+    <!-- Ayudas -->
+    <string name="help_heart_rate">Rango normal: 60-100 LPM</string>
+    <string name="help_glucose_fasting">Ayunas: 70-100 mg/dL</string>
+    <string name="help_glucose_postprandial">Después de comer: 70-140 mg/dL</string>
+    <string name="help_temperature">Rango normal: 36-37 °C</string>
+    <string name="help_blood_pressure">Normal: &lt; 120/80 mmHg</string>
+    <string name="help_oxygen">Rango normal: &gt; 95%</string>
+
+    <!-- Descripciones de contenido -->
+    <string name="registered_by">Registrado por: %s</string>
+    <string name="at_time">a las %s</string>
+    <string name="next">CONTINUAR</string>
+
+    <string name="icon_time">Icono de hora</string>
+    <string name="icon_details">Icono de detalles</string>
+    <string name="icon_elderly">Icono de adulto mayor</string>
+    <string name="medical_appointment">Cita Médica</string>
+    <string name="normal_task">Tarea</string>
+    <string name="assigned_to">Asignado a: </string>
+    <string name="select_elderly">Seleccionar adulto mayor</string>
+    <string name="no_events">Sin eventos</string>
+    <string name="no_events_on_this_date">No hay eventos en esta fecha</string>
+    <string name="select_another_date_or_add_new">Selecciona otra fecha o agrega un nuevo evento</string>
+    <string name="add_event">Agregar evento</string>
+    <string name="events_on_date">Eventos del %s</string>
+    <string name="event_count">%d evento(s)</string>
+    <string name="personal_info">Información Personal</string>
+    <string name="date_hour">Fecha y Hora</string>
+    <string name="close">cerrar</string>
+    <string name="notes">Notas</string>
+    <string name="location">Ubicación</string>
+    <string name="elderly">Adulto mayor</string>
+    <string name="status">Estado</string>
+    <string name="eliminate">Eliminar</string>
+    <string name="register_by">Registrado por</string>
+    <string name="hour">Hora</string>
+    <string name="date">Fecha</string>
+    <plurals name="event_count">
+        <item quantity="one">%d evento</item>
+        <item quantity="other">%d eventos</item>
+    </plurals>
+
+
+</resources>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Estado: Checked -->
+    <item android:state_checked="true">
+        <shape android:shape="oval">
+            <solid android:color="@color/status_normal"/>
+            <size android:width="28dp" android:height="28dp"/>
+        </shape>
+
+        <vector
+            android:width="24dp"
+            android:height="24dp"
+            android:viewportWidth="24"
+            android:viewportHeight="24">
+            <path
+                android:fillColor="@android:color/white"
+                android:pathData="M9,16.17L4.83,12l-1.42,1.41L9,19 21,7l-1.41,-1.41z"/>
+        </vector>
+    </item>
+
+    <!-- Estado: Unchecked -->
+    <item>
+        <shape android:shape="oval">
+            <stroke android:width="2dp" android:color="@color/black"/>
+            <solid android:color="@android:color/transparent"/>
+            <size android:width="28dp" android:height="28dp"/>
+        </shape>
+    </item>
+</selector>

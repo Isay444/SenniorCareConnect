@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:background="@color/background_light">
+
+    <!-- Texto de bienvenida -->
+    <TextView
+        android:id="@+id/tvAppName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/app_name"
+        android:textColor="@color/black"
+        android:textSize="35sp"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        android:fontFamily="sans-serif-black"/>
+
+    <!-- Texto de bienvenida -->
+    <TextView
+        android:id="@+id/tvWelcome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="¡Bienvenido!"
+        android:textColor="@color/text_primary"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <!-- Imagen del logo -->
+    <ImageView
+        android:id="@+id/ivLogo"
+        android:layout_width="240dp"
+        android:layout_height="240dp"
+        android:layout_marginVertical="22dp"
+        android:src="@drawable/bienvenido"
+        android:contentDescription="@string/app_name"
+        android:scaleType="centerInside" />
+
+    <!-- Descripción -->
+    <TextView
+        android:id="@+id/tvDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Gestiona medicamentos, registra síntomas y coordinate para el cuidado de las personas mayores de tu casa de manera sencilla"
+        android:gravity="center"
+        android:textSize="14sp"
+        android:lineSpacingExtra="2dp"
+        android:layout_marginBottom="24dp"
+        android:textColor="@color/black" />
+
+    <!-- Botón Iniciar Sesión -->
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Iniciar Sesión"
+        android:drawablePadding="8dp"
+        android:backgroundTint="#00BABD"
+        android:textColor="@color/white"
+        android:layout_marginBottom="12dp"/>
+
+    <!-- Botón Crear Cuenta -->
+    <Button
+        android:id="@+id/btnRegister"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Crear Cuenta"
+        android:drawableTint="@color/white"
+        android:drawablePadding="8dp"
+        android:backgroundTint="@color/gray"
+        android:textColor="@color/black" />
+
+</LinearLayout>

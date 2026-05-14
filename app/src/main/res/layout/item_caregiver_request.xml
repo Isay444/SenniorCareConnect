@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cardRequest"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="8dp"
+    app:cardBackgroundColor="@android:color/white"
+    app:strokeWidth="4dp"
+    app:strokeColor="@color/warning"
+    android:layout_marginBottom="@dimen/margin_elderly_standard">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/card_padding_elderly">
+
+        <!-- ProgressBar para loading -->
+        <ProgressBar
+            android:id="@+id/progressBarItem"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="8dp"
+            android:visibility="gone" />
+
+        <!-- Información del Cuidador -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp"
+            android:gravity="center_vertical">
+
+            <!-- Avatar -->
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/ivCaregiverAvatar"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:src="@drawable/ic_avatar"
+                android:scaleType="centerCrop"
+                app:shapeAppearanceOverlay="@style/ShapeAppearance.Material3.Corner.Full"
+                app:strokeColor="@color/main_secondary"
+                app:strokeWidth="1dp"
+                android:layout_marginEnd="16dp"
+                android:contentDescription="Avatar del cuidador" />
+
+            <!-- Información básica -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <!-- Nombre del cuidador -->
+                <TextView
+                    android:id="@+id/tvCaregiverName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="María González"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/text_primary"
+                    android:layout_marginBottom="4dp"
+                    tools:text="María González" />
+
+                <!-- Email del cuidador -->
+                <TextView
+                    android:id="@+id/tvCaregiverEmail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="maria@gmail.com"
+                    android:textSize="18sp"
+                    android:textColor="@color/text_secondary"
+                    android:layout_marginBottom="4dp"
+                    tools:text="maria@gmail.com" />
+
+                <!-- Tiempo transcurrido -->
+                <TextView
+                    android:id="@+id/tvRequestTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Hace 2 horas"
+                    android:textSize="16sp"
+                    android:textColor="@color/text_secondary"
+                    android:drawableStart="@drawable/ic_schedule"
+                    android:drawablePadding="8dp"
+                    tools:text="Hace 2 horas" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Código de invitación usado -->
+        <TextView
+            android:id="@+id/tvInviteCodeUsed"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Usó código: ABC-123"
+            android:textSize="16sp"
+            android:textColor="@color/text_primary"
+            android:textStyle="bold"
+            android:background="@drawable/rounded_background"
+            android:backgroundTint="@color/white_bone"
+            android:padding="8dp"
+            android:layout_marginBottom="16dp"
+            android:drawableStart="@drawable/ic_qr_code"
+            android:drawablePadding="8dp"
+            android:visibility="gone"
+            tools:text="Usó código: ABC-123"
+            tools:visibility="visible" />
+
+        <!-- Mensaje del cuidador -->
+        <TextView
+            android:id="@+id/labelMessage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="💬 Mensaje: Hola como estas"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/text_primary"
+            android:layout_marginBottom="8dp"
+            android:visibility="gone"
+            tools:visibility="visible"/>
+
+        <TextView
+            android:id="@+id/tvCaregiverMessage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="16sp"
+            android:textColor="@color/text_secondary"
+            android:background="@drawable/rounded_background"
+            android:backgroundTint="@color/background_secondary"
+            android:padding="12dp"
+            android:layout_marginBottom="16dp"
+            android:lineSpacingMultiplier="1.3"
+            android:visibility="gone"
+            tools:text="Hola, soy enfermera y me gustaría ayudar con el cuidado diario."
+            tools:visibility="gone" />
+
+        <!-- ========== LAYOUT: SOLICITUDES PENDIENTES ========== -->
+        <LinearLayout
+            android:id="@+id/layoutActionButtons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            android:visibility="visible">
+
+            <!-- Botón APROBAR GIGANTE -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnApprove"
+                android:layout_width="0dp"
+                android:layout_height="64dp"
+                android:layout_weight="1"
+                android:text="APROBAR"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/white"
+                android:backgroundTint="@color/status_on_time"
+                app:cornerRadius="12dp"
+                app:elevation="4dp"
+                android:layout_marginEnd="8dp"
+                tools:text="APROBAR" />
+
+            <!-- Botón RECHAZAR GIGANTE -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnReject"
+                android:layout_width="0dp"
+                android:layout_height="64dp"
+                android:layout_weight="1"
+                android:text="RECHAZAR"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/white"
+                android:backgroundTint="@color/elderly_emergency"
+                app:cornerRadius="12dp"
+                app:elevation="4dp"
+                android:layout_marginStart="8dp"
+                tools:text="RECHAZAR" />
+
+        </LinearLayout>
+
+        <!-- ========== LAYOUT: CUIDADORES APROBADOS ========== -->
+        <LinearLayout
+            android:id="@+id/layoutApprovedInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <!-- Información de aprobación -->
+            <TextView
+                android:id="@+id/tvApprovedDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Conectado: 15/10/2025 14:30"
+                android:textSize="16sp"
+                android:textColor="@color/status_on_time"
+                android:textStyle="bold"
+                android:drawableStart="@drawable/ic_check_circle"
+                android:drawablePadding="8dp"
+                android:layout_marginBottom="16dp"
+                tools:text="Conectado: 15/10/2025 14:30" />
+
+            <!-- Botón REMOVER -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnRemoveCaregiver"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:text="🗑️ REMOVER CUIDADOR"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/white"
+                android:backgroundTint="@color/elderly_emergency"
+                app:cornerRadius="12dp"
+                app:elevation="4dp"
+                tools:text="🗑️ REMOVER CUIDADOR" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

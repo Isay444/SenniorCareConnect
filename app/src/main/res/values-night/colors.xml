@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Colores sugeridos para modo oscuro en colors.xml -->
+    <color name="main_color_dark">#20243C</color> <!-- Un azul más claro/pastel -->
+    <color name="secondary_dark">#B2FF59</color>
+    <color name="background_dark">#1E1E1E</color>
+    <color name="surface_dark">#1E1E1E</color>
+    <color name="on_surface_dark">#390597</color>
+
+
+</resources>

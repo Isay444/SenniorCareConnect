@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginVertical="6dp"
+    android:layout_marginHorizontal="4dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="2dp"
+    app:strokeWidth="1dp"
+    android:id="@+id/layoutCard"
+    android:backgroundTint="@color/white"
+    app:strokeColor="@color/card_stroke">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp">
+
+        <!-- Bloque de fecha lateral -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/dateCard"
+            android:layout_width="60dp"
+            android:layout_height="90dp"
+            app:cardCornerRadius="8dp"
+            app:cardBackgroundColor="@color/medical_appointment_stroke"
+            app:cardElevation="0dp"
+            app:strokeColor="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/tvDayNumber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/white"
+                    tools:text="01"/>
+
+                <TextView
+                    android:id="@+id/tvMonthAbbr"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/white"
+                    tools:text="NOV"/>
+
+                <TextView
+                    android:id="@+id/tvTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    tools:text="17:00"/>
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Badge "HOY" -->
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipToday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="HOY"
+            android:textColor="@android:color/white"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            android:visibility="visible"
+            app:chipBackgroundColor="@color/azul_principal"
+            app:chipCornerRadius="9dp"
+            app:chipMinHeight="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Tipo de evento -->
+        <TextView
+            android:id="@+id/tvEventType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:textColor="?attr/colorOnSurface"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@id/dateCard"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Cita médica" />
+
+        <!-- Adulto mayor -->
+        <TextView
+            android:id="@+id/tvElderly"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="4dp"
+            android:textColor="@color/text_tertiary"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@id/dateCard"
+            app:layout_constraintTop_toBottomOf="@id/tvEventType"
+            tools:text="Adulto Mayor" />
+
+        <!-- Ubicación/Asignado (dependiendo del tipo) -->
+        <TextView
+            android:id="@+id/tvLocationOrAssigned"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="2dp"
+            android:drawablePadding="4dp"
+            android:gravity="center_vertical"
+            android:textColor="@color/text_primary"
+            android:textSize="12sp"
+            app:drawableStartCompat="@drawable/ic_location_pin"
+            app:drawableTint="@color/pulse_stroke"
+            app:layout_constraintEnd_toStartOf="@+id/tvTaskStatus"
+            app:layout_constraintStart_toEndOf="@id/dateCard"
+            app:layout_constraintTop_toBottomOf="@id/tvElderly"
+            tools:text="Lugar: Hospital" />
+
+        <!-- Cuidador que añadio el evento -->
+        <TextView
+            android:id="@+id/tvCreatedBy"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:drawablePadding="4dp"
+            android:gravity="center_vertical"
+            android:textColor="@color/text_secondary"
+            android:textSize="12sp"
+            app:drawableTint="@color/medical_appointment_color"
+            app:layout_constraintEnd_toStartOf="@+id/tvTaskType"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/tvLocationOrAssigned"
+            app:layout_constraintTop_toBottomOf="@id/tvLocationOrAssigned"
+            tools:text="Añadidio por" />
+
+        <TextView
+            android:id="@+id/tvTaskType"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="4dp"
+            android:textSize="12sp"
+            android:background="@drawable/bg_cite_medic"
+            android:textColor="@color/text_primary"
+            android:textStyle="bold"
+            tools:text="Tipo de Tarea"
+            android:padding="4dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvLocationOrAssigned"/>
+
+        <TextView
+            android:id="@+id/tvTaskStatus"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:background="@drawable/bg_card"
+            android:padding="4dp"
+            android:textColor="@color/text_primary"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/tvTaskType"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="Confirmada"
+            tools:visibility="visible"
+            android:visibility="gone"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

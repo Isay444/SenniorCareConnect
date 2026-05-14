@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_add_vital_sign"
+    app:startDestination="@id/selectPatientForVitalSignsFragment">
+
+    <!-- Paso 1: Seleccionar Paciente -->
+    <fragment
+        android:id="@+id/selectPatientForVitalSignsFragment"
+        android:name="com.isa.cuidadocompartidomayor.ui.diary.wizard.SelectPatientForVitalSignsFragment"
+        android:label="Seleccionar Paciente"
+        tools:layout="@layout/fragment_select_patient">
+
+        <argument
+            android:name="vitalSignId"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null"/>
+
+        <action
+            android:id="@+id/action_selectPatient_to_selectVitalSignTypes"
+            app:destination="@id/selectVitalSignTypesFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+
+    <!-- Paso 2: Seleccionar Tipos de Signos Vitales -->
+    <fragment
+        android:id="@+id/selectVitalSignTypesFragment"
+        android:name="com.isa.cuidadocompartidomayor.ui.diary.wizard.SelectVitalSignTypesFragment"
+        android:label="Seleccionar Signos Vitales"
+        tools:layout="@layout/fragment_select_vital_sign_types">
+
+        <argument
+            android:name="elderlyId"
+            app:argType="string"/>
+        <argument
+            android:name="elderlyName"
+            app:argType="string"/>
+        <argument
+            android:name="vitalSignId"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null"/>
+
+        <action
+            android:id="@+id/action_selectTypes_to_enterValues"
+            app:destination="@id/enterVitalSignValuesFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+
+    <!-- Paso 3: Ingresar Valores -->
+    <fragment
+        android:id="@+id/enterVitalSignValuesFragment"
+        android:name="com.isa.cuidadocompartidomayor.ui.diary.wizard.EnterVitalSignValuesFragment"
+        android:label="Ingresar Valores"
+        tools:layout="@layout/fragment_enter_vital_sign_values">
+
+        <argument
+            android:name="elderlyId"
+            app:argType="string"/>
+        <argument
+            android:name="elderlyName"
+            app:argType="string"/>
+        <argument
+            android:name="selectedTypes"
+            app:argType="string"/>
+        <argument
+            android:name="vitalSignId"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null"/>
+
+        <action
+            android:id="@+id/action_enterValues_to_addNotes"
+            app:destination="@id/addVitalSignNotesFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+
+    <!-- Paso 4: Agregar Notas y Resumen -->
+    <fragment
+        android:id="@+id/addVitalSignNotesFragment"
+        android:name="com.isa.cuidadocompartidomayor.ui.diary.wizard.AddVitalSignNotesFragment"
+        android:label="Notas Adicionales"
+        tools:layout="@layout/fragment_add_vital_sign_notes">
+
+        <argument
+            android:name="elderlyId"
+            app:argType="string"/>
+        <argument
+            android:name="elderlyName"
+            app:argType="string"/>
+        <argument
+            android:name="vitalSignData"
+            app:argType="string"/>
+        <argument
+            android:name="vitalSignId"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null"/>
+    </fragment>
+
+</navigation>

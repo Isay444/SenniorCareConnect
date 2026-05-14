@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Inicio - Tarjetas de medicamento y citas -->
+    <item
+        android:id="@+id/elderlyHomeFragment"
+        android:enabled="true"
+        android:icon="@drawable/ic_home"
+        android:title="Inicio" />
+
+    <!-- Emergencia - Botón SOS -->
+    <item
+        android:id="@+id/emergencyFragment"
+        android:enabled="true"
+        android:icon="@drawable/ic_emergency"
+        android:title="Emergencia" />
+
+    <!-- Invitar Cuidador -->
+    <item
+        android:id="@+id/generateInviteCodeFragment"
+        android:enabled="true"
+        android:icon="@drawable/ic_invite"
+        android:title="Invitar" />
+
+    <!-- Solicitudes de Cuidadores -->
+    <item
+        android:id="@+id/caregiverRequestsFragment"
+        android:enabled="true"
+        android:icon="@drawable/ic_people"
+        android:title="Solicitudes" />
+</menu>

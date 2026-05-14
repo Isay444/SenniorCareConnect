@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cardCode"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="4dp"
+    app:cardBackgroundColor="@android:color/white"
+    app:strokeWidth="1dp"
+    app:strokeColor="@color/text_secondary"
+    android:layout_marginBottom="8dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:background="@color/white_bone"
+        android:gravity="center_vertical">
+
+        <!-- Información del código -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_marginEnd="16dp">
+
+            <!-- Código -->
+            <TextView
+                android:id="@+id/tvCode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ABC-123"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/black"
+                android:fontFamily="monospace"
+                android:layout_marginBottom="4dp"
+                tools:text="ABC-123" />
+
+            <!-- Fecha de creación -->
+            <TextView
+                android:id="@+id/tvCreatedDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Creado: 15/10/2025 14:30"
+                android:textSize="14sp"
+                android:textColor="@color/text_secondary"
+                android:layout_marginBottom="4dp"
+                tools:text="Creado: 15/10/2025 14:30" />
+
+            <!-- Estado -->
+            <TextView
+                android:id="@+id/tvStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="✅ USADO"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                tools:text=" ✅ USADO " />
+
+        </LinearLayout>
+
+        <!-- Botón compartir -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnShare"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:text="COMPARTIR"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"
+            android:backgroundTint="@color/green_one"
+            app:cornerRadius="8dp"
+            android:paddingHorizontal="16dp"
+            tools:text="COMPARTIR" />
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

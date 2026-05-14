@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_elderly"
+    app:startDestination="@id/elderlyHomeFragment">
+
+    <!-- Pantalla de Inicio del Adulto Mayor -->
+    <fragment
+        android:id="@+id/elderlyHomeFragment"
+        android:name="com.isa.cuidadocompartidomayor.ui.elderly.ElderlyHomeFragment"
+        android:label="Inicio"
+        tools:layout="@layout/fragment_elderly_home" >
+
+        <!-- Navegación a generar código desde botón en la tarjeta -->
+        <action
+            android:id="@+id/action_elderlyHome_to_generateInviteCode"
+            app:destination="@id/generateInviteCodeFragment" />
+
+        <!-- Navegación a solicitudes de cuidadores -->
+        <action
+            android:id="@+id/action_elderlyHome_to_caregiverRequests"
+            app:destination="@id/caregiverRequestsFragment" />
+
+    </fragment>
+
+    <!-- Pantalla de Emergencia -->
+    <fragment
+        android:id="@+id/emergencyFragment"
+        android:name="com.isa.cuidadocompartidomayor.ui.elderly.EmergencyFragment"
+        android:label="Emergencia"
+        tools:layout="@layout/fragment_emergency" />
+
+    <!-- Pantalla para Generar Códigos de Invitación -->
+    <fragment
+        android:id="@+id/generateInviteCodeFragment"
+        android:name="com.isa.cuidadocompartidomayor.ui.elderly.GenerateInviteCodeFragment"
+        android:label="Invitar Cuidador"
+        tools:layout="@layout/fragment_generate_invite_code" />
+
+    <!-- Pantalla para Gestionar Solicitudes de Cuidadores -->
+    <fragment
+        android:id="@+id/caregiverRequestsFragment"
+        android:name="com.isa.cuidadocompartidomayor.ui.elderly.CaregiverRequestsFragment"
+        android:label="Solicitudes de Cuidadores"
+        tools:layout="@layout/fragment_caregiver_requests" />
+
+    <!-- Perfil -->
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.isa.cuidadocompartidomayor.ui.profile.ProfileFragment"
+        android:label="Perfil"
+        tools:layout="@layout/fragment_profile" />
+
+</navigation>

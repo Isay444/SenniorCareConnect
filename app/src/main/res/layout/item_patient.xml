@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cardPatient"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="3dp"
+    app:strokeWidth="2dp"
+    app:strokeColor="@color/card_stroke"
+    app:cardBackgroundColor="@android:color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/background_light"
+        android:padding="16dp">
+
+        <!-- Header Row -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="12dp">
+
+            <!-- Avatar -->
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/ivPatientAvatar"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:layout_marginEnd="12dp"
+                android:src="@drawable/ic_avatar"
+                android:scaleType="centerCrop"
+                app:shapeAppearanceOverlay="@style/ShapeAppearance.Material3.Corner.Full"
+                app:strokeColor="@color/azul_principal"
+                app:strokeWidth="2dp" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <!-- Patient Name -->
+                <TextView
+                    android:id="@+id/tvPatientName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nombre del Adulto Mayor"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/black"
+                    tools:text="María González" />
+
+                <!-- Status Badge -->
+                <TextView
+                    android:id="@+id/tvStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="Activo"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:background="@drawable/status_badge_background"
+                    android:paddingHorizontal="8dp"
+                    android:paddingVertical="2dp"
+                    tools:text="estado" />
+
+            </LinearLayout>
+
+            <!-- Status Icon (Right side now) -->
+            <ImageView
+                android:id="@+id/ivStatusIcon"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_avatar"
+                android:layout_marginStart="8dp"
+                android:contentDescription="Estado"
+                app:tint="@color/secondary" />
+
+        </LinearLayout>
+
+        <!-- Email -->
+        <TextView
+            android:id="@+id/tvPatientEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textColor="@color/black"
+            android:layout_marginBottom="8dp"
+            android:drawablePadding="8dp"
+            android:gravity="center_vertical"
+            android:drawableTint="@color/secondary"
+            app:drawableStartCompat="@drawable/ic_mail"
+            tools:text="email@ejemplo.com" />
+
+        <!-- Connection Date -->
+        <TextView
+            android:id="@+id/tvConnectionDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:textColor="@color/black"
+            android:layout_marginBottom="8dp"
+            android:drawablePadding="8dp"
+            android:gravity="center_vertical"
+            app:drawableStartCompat="@drawable/ic_time"
+            app:drawableTint="@color/secondary"
+            tools:text="Conectado: 15/09/2025" />
+
+        <!-- Role -->
+        <TextView
+            android:id="@+id/tvRole"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cuidador Secundario"
+            android:textSize="12sp"
+            android:textColor="@color/black"
+            android:layout_marginBottom="8dp"
+            android:drawablePadding="8dp"
+            android:gravity="center_vertical"
+            app:drawableStartCompat="@drawable/ic_people"
+            app:drawableTint="@color/secondary"
+            tools:text="Cuidador Principal" />
+
+        <!-- Notes (conditionally visible) -->
+        <TextView
+            android:id="@+id/tvNotes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Notas adicionales sobre la conexión"
+            android:textSize="12sp"
+            android:textColor="@android:color/darker_gray"
+            android:textStyle="italic"
+            android:background="#F0F0F0"
+            android:padding="8dp"
+            android:visibility="gone"
+            tools:text="Conexión establecida via código de invitación"
+            tools:visibility="visible" />
+
+        <!-- Divider -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#E0E0E0"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Action Hint -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Toca para ver detalles"
+            android:textSize="11sp"
+            android:textColor="@color/gray_black"
+            android:textAlignment="center"
+            android:alpha="0.7" />
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

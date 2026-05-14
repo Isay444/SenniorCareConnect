@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    tools:context=".ui.elderly.EmergencyFragment">
+
+    <!-- Layout del Botón de Emergencia Principal -->
+    <LinearLayout
+        android:id="@+id/layoutEmergencyButton"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="32dp">
+
+        <!-- Texto informativo -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="SÓLO EN CASO DE EMERGENCIA \n⚠️"
+            android:fontFamily="sans-serif-black"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            android:layout_marginBottom="48dp" />
+
+        <!-- Botón SOS GIGANTE -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnEmergency"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:text="AUXILIO\n🚨\nTOCAR AQUÍ"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"
+            android:backgroundTint="#F44336"
+            app:cornerRadius="150dp"
+            app:elevation="16dp"
+            android:layout_marginBottom="48dp" />
+
+        <!-- Instrucciones -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Presiona el botón rojo sólo en caso de emergencia real"
+            android:textSize="20sp"
+            android:textStyle="bold|italic"
+            android:fontFamily="sans-serif-medium"
+            android:textAlignment="center"
+            android:textColor="@color/blood_pressure_stroke"
+            android:lineSpacingMultiplier="1.3" />
+
+    </LinearLayout>
+
+    <!-- Layout de Confirmación (Inicialmente oculto) -->
+    <LinearLayout
+        android:id="@+id/layoutConfirmation"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="32dp"
+        android:visibility="gone">
+
+        <!-- Icono de alerta grande -->
+        <ImageView
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@android:drawable/ic_dialog_alert"
+            android:layout_marginBottom="32dp"
+            android:contentDescription="Icono de alerta"
+            app:tint="#F44336" />
+
+        <!-- Pregunta de confirmación -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="¿CONFIRMAS QUE ES UNA EMERGENCIA?"
+            android:textSize="@dimen/text_size_elderly_large"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            android:layout_marginBottom="48dp"
+            android:lineSpacingMultiplier="1.2" />
+
+        <!-- Información adicional -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Se enviará tu ubicación a todos tus cuidadores"
+            android:textSize="28sp"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:layout_marginBottom="48dp" />
+
+        <!-- Progress Bar (oculto inicialmente) -->
+        <ProgressBar
+            android:id="@+id/progressBarEmergency"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginBottom="24dp"
+            android:visibility="gone" />
+
+        <!-- Botones de confirmación -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <!-- Botón CONFIRMAR -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnConfirmEmergency"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/button_height_elderly"
+                android:text="SÍ, ENVIAR ALERTA"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/white"
+                android:backgroundTint="#4CAF50"
+                app:cornerRadius="12dp"
+                app:elevation="8dp"
+                android:layout_marginBottom="16dp" />
+
+            <!-- Botón CANCELAR -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCancelEmergency"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/button_height_elderly"
+                android:text="CANCELAR"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/darker_gray"
+                android:backgroundTint="@android:color/background_light"
+                app:cornerRadius="12dp"
+                style="@style/Widget.MaterialComponents.Button.TextButton" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</FrameLayout>
