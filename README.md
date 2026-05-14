@@ -188,4 +188,9 @@ allow read, write: if request.auth != null;
 
 ---
 
+## ⬇️ Descarga
+[Descargar APK v0.1.0-alpha](https://github.com/Isay444/SenniorCareConnect/releases/tag/v0.1.0-alpha)
+
+---
+
 Este proyecto es de uso personal/académico.
