@@ -160,20 +160,31 @@ allow read, write: if request.auth != null;
 - [ ] Mejorar navegación del perfil Elderly (back stack)
 - [ ] Eliminar datos asociados al borrar cuenta de usuario
 - [ ] Rediseño del dashboard de Caregiver
-- [ ] Estandarización de código y limpieza de funciones no utilizadas
 
 ---
 
 ## 📸 Capturas de Pantalla
 
-![Tomar medicamento]<img width="1920" height="1080" alt="Screen-TomarMedicamento" src="https://github.com/user-attachments/assets/1cb12417-f29c-461e-a9a4-d47b4d00fe4b" />
-![Generar Conexion Caregiver-Elderly]<img width="1920" height="1080" alt="Screen-Codigos" src="https://github.com/user-attachments/assets/08eda9a8-3801-4f92-9129-42daa65a408f" />
-![Página principal Cuidador]
-<img width="540" height="1200" alt="Screen-DashbpardCuidador-Parte1" src="https://github.com/user-attachments/assets/7a66b9c8-6dd2-4792-b582-ce00fa6b506a" />
-<img width="540" height="1200" alt="Screen-DashboardCuidador-Parte2" src="https://github.com/user-attachments/assets/e61f700e-ba46-4257-914b-1802684e4eb1" />
-![Lista + Historial de Medicamentos]
-<img width="540" height="1200" alt="Screen-Modulo-MedicamentosLista" src="https://github.com/user-attachments/assets/c7b72487-16a9-4eda-a8bc-888ea5234c1e" />
-<img width="720" height="1600" alt="Screen-Modulo-MedicamentosHisotrial" src="https://github.com/user-attachments/assets/244aa2cb-3f28-4f51-ac75-1d460f8eda33" />
+- Tomar medicamento
+
+<img width="480" height="270" alt="Screen-TomarMedicamento" src="https://github.com/user-attachments/assets/1cb12417-f29c-461e-a9a4-d47b4d00fe4b" />
+
+- Generar Conexion Caregiver-Elderly
+
+<img width="480" height="270" alt="Screen-Codigos" src="https://github.com/user-attachments/assets/08eda9a8-3801-4f92-9129-42daa65a408f" />
+
+- Página principal Cuidador
+
+<img width="270" height="600" alt="Screen-DashbpardCuidador-Parte1" src="https://github.com/user-attachments/assets/7a66b9c8-6dd2-4792-b582-ce00fa6b506a" />
+<img width="270" height="600" alt="Screen-DashboardCuidador-Parte2" src="https://github.com/user-attachments/assets/e61f700e-ba46-4257-914b-1802684e4eb1" />
+
+- Lista + Historial de Medicamentos
+
+<img width="270" height="600" alt="Screen-Modulo-MedicamentosLista" src="https://github.com/user-attachments/assets/c7b72487-16a9-4eda-a8bc-888ea5234c1e" />
+<img width="270" height="600" alt="Screen-Modulo-MedicamentosHisotrial" src="https://github.com/user-attachments/assets/244aa2cb-3f28-4f51-ac75-1d460f8eda33" />
+
+- Modulo de datos clinicos
+<img width="1920" height="1080" alt="Screen-ModuloDiarioSalud" src="https://github.com/user-attachments/assets/010e7a42-6f5f-4b96-8469-5c9df6649a1a" />
 
 ---
 
